@@ -1,0 +1,37 @@
+app: usercenter
+mode: dev
+
+http:
+  addr: ":8080"
+  open_tls: false
+  tls:
+    cert_file:
+    key_file:
+
+grpc:
+  addr: ":443"
+  max_message_size: 1024
+
+mysql:
+  dsn:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: mypwd
+  db: usercenter
+  max_idle_conns: 100
+  max_open_conns: 100
+  max_conns_life: 60s
+
+jwt:
+  realm: usercenter-jwt
+  key: eyJyZWFsbSI6ImlhbS5oZWxsb2NoLm
+  expire: 86400
+  refresh: 86400
+
+log:
+  level: debug
+  encoding: console
+  caller: true
+  caller_skip: 3
+  output: [stdout]
